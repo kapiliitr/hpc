@@ -7,7 +7,7 @@
 #
 
 # list of files 
-FILES = 1 3.3 3.7 contiguous dd_struct dd_index hello_mpi infnorm intro mpi pack scatter fileWrite transpose
+FILES = 1 3.3 3.7 infnorm mpi fileWrite transpose
 
 CC = mpicc			# name of compiler 
 CFLAGS = 			# warning flag
