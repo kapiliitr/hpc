@@ -1,0 +1,64 @@
+
+	---------------------------------------------------------
+
+	    PARAM Communication Overhead Measurement Suites      
+
+	                    P-COMS-v1.1.3                        
+
+	---------------------------------------------------------
+
+	Refer to Error 20/22 - Appendix 4 in P-COMS User Guide
+
+	The benchmarks specified are :
+		 1) pingping
+
+	The benchmarks which are being executed are :
+		 1) pingping
+
+	The classes specified are :
+		 1) B
+
+
+
+	---------------------------------------------------------
+	Benchmark about to be executed           : Pingping
+	Class specified                          : B
+	Minimum message size                     : 1  Bytes
+	Maximum message size                     : 100K Bytes
+	Number of processes specified            : 2
+	Number of processes selected             : 2
+
+	---------------------------------------------------------
+
+	Benchmarking starts ...
+
+	---------------------------------------------------------
+
+	       Message Size       Latency        Bandwidth       
+
+	         (Bytes)       (microseconds)     (MB/s)         
+
+	---------------------------------------------------------
+	            0             17.294812          -        
+	            1             18.116236       0.052642   
+	            2             18.087462       0.105451   
+	            4             18.148926       0.210189   
+	            8             18.186205       0.419515   
+	           16             18.204927       0.838168   
+	           32             18.156592       1.680799   
+	           64             18.185139       3.356321   
+	          128             18.288942       6.674542   
+	          256             18.582900      13.137918   
+	          512             19.047650      25.634723   
+	           1K             19.910574      49.047431   
+	           2K             21.720992      89.918775   
+	           4K             26.261806     148.742624   
+	           8K             31.769616     245.911060   
+	          16K             55.522124     281.419349   
+	          32K             88.559151     352.871496   
+	          64K            152.719021     409.248302   
+	         100K            230.220556     424.185623   
+
+	---------------------------------------------------------
+
+	Benchmarking completed

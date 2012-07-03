@@ -1,0 +1,57 @@
+
+	---------------------------------------------------------
+
+	    PARAM Communication Overhead Measurement Suites      
+
+	                    P-COMS-v1.1.3                        
+
+	---------------------------------------------------------
+
+	Refer to Error 20/22 - Appendix 4 in P-COMS User Guide
+
+	The benchmarks specified are :
+		 1) pingping
+
+	The benchmarks which are being executed are :
+		 1) pingping
+
+	The classes specified are :
+		 1) A
+
+
+
+	---------------------------------------------------------
+	Benchmark about to be executed           : Pingping
+	Class specified                          : A
+	Minimum message size                     : 1  Bytes
+	Maximum message size                     : 1K Bytes
+	Number of processes specified            : 4
+	Number of processes selected             : 2
+
+	---------------------------------------------------------
+
+	Benchmarking starts ...
+
+	---------------------------------------------------------
+
+	       Message Size       Latency        Bandwidth       
+
+	         (Bytes)       (microseconds)     (MB/s)         
+
+	---------------------------------------------------------
+	            0             13.875127          -        
+	            1             14.671087       0.065004   
+	            2             14.683548       0.129897   
+	            4             14.713897       0.259258   
+	            8             14.704845       0.518835   
+	           16             14.738351       1.035312   
+	           32             14.739768       2.070425   
+	           64             14.724527       4.145135   
+	          128             14.704448       8.301591   
+	          256             14.739434      16.563772   
+	          512             15.015732      32.517978   
+	           1K             15.359068      63.582146   
+
+	---------------------------------------------------------
+
+	Benchmarking completed
