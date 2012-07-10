@@ -69,9 +69,6 @@ int main(int argc, char *argv[])
 	
 	if(devcount > 0)
 	{	
-		safe_call(cudaEventCreate(&start),myrank,__LINE__);
-		safe_call(cudaEventCreate(&stop),myrank,__LINE__);
-
 		for(i = myrank; i < devcount; i+=comm_size)
 		{
 			safe_call(cudaSetDevice(i),myrank,__LINE__);		
@@ -99,6 +96,9 @@ int main(int argc, char *argv[])
 					safe_call(cudaMalloc((void **)&d_B, SIZE*sizeof(char)),myrank,__LINE__);
 
 					fill_data(h_A,SIZE);
+
+					safe_call(cudaEventCreate(&start),myrank,__LINE__);
+					safe_call(cudaEventCreate(&stop),myrank,__LINE__);
 
 
 					/************************************** Host to Device Starts ***********************************/
@@ -162,12 +162,12 @@ int main(int argc, char *argv[])
 
 					free(h_A);
 					free(h_B);
+
+					safe_call(cudaEventDestroy(start),myrank,__LINE__);	
+					safe_call(cudaEventDestroy(stop),myrank,__LINE__);
 				}
 			}
 		}
-
-		safe_call(cudaEventDestroy(start),myrank,__LINE__);	
-		safe_call(cudaEventDestroy(stop),myrank,__LINE__);
 	}
 	else
 	{

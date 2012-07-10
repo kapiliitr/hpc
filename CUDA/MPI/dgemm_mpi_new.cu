@@ -416,7 +416,7 @@ int main(int argc, char *argv[])
 							\t colB : %d\n\
 							\t colA : %d\n\
 							Gflops\/s : %f\n",\
-							device,MODE,RowA,ColB,ColA,recvbuf[i]);
+							i,MODE,RowA,ColB,ColA,recvbuf[i]);
 					else
 						printf("Error : CPU and GPU result do not match on Device:%d\n",device);	
 		}

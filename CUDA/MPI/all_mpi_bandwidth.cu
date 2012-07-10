@@ -188,9 +188,6 @@ int main(int argc, char *argv[])
 	safe_call(cudaGetDeviceCount(&devcount),myrank,__LINE__);		
 	if(devcount > 0)
 	{	
-		safe_call(cudaEventCreate(&start),myrank,__LINE__);
-		safe_call(cudaEventCreate(&stop),myrank,__LINE__);
-		
 		if(strcmp(MODE,"pageable") == 0)
 		{
 			for(i = myrank; i < devcount; i+=comm_size)
@@ -220,6 +217,8 @@ int main(int argc, char *argv[])
 
 						fill_data(h_A,SIZE);
 
+						safe_call(cudaEventCreate(&start),myrank,__LINE__);
+						safe_call(cudaEventCreate(&stop),myrank,__LINE__);	
 
 						/************************************** Host to Device Starts ***********************************/
 						safe_call(cudaEventRecord(start, 0),myrank,__LINE__);
@@ -283,6 +282,9 @@ int main(int argc, char *argv[])
 
 						free(h_A);
 						free(h_B);
+
+						safe_call(cudaEventDestroy(start),myrank,__LINE__);	
+						safe_call(cudaEventDestroy(stop),myrank,__LINE__);
 					}
 				}
 			}
@@ -308,6 +310,9 @@ int main(int argc, char *argv[])
 						safe_call(cudaMalloc((void **)&d_B, SIZE*sizeof(char)),myrank,__LINE__);
 
 						fill_data(h_A,SIZE);
+
+						safe_call(cudaEventCreate(&start),myrank,__LINE__);
+						safe_call(cudaEventCreate(&stop),myrank,__LINE__);	
 
 
 						/************************************** Host to Device Starts ***********************************/
@@ -372,6 +377,9 @@ int main(int argc, char *argv[])
 				
 						safe_call(cudaFreeHost(h_A),myrank,__LINE__);
 						safe_call(cudaFreeHost(h_B),myrank,__LINE__);
+						
+						safe_call(cudaEventDestroy(start),myrank,__LINE__);	
+						safe_call(cudaEventDestroy(stop),myrank,__LINE__);
 					}
 				}
 			}
@@ -380,10 +388,7 @@ int main(int argc, char *argv[])
 		{
 			if(myrank==0)
 				printf("Memory mode choices : pinned/pageable\n");
-		}
-	
-		safe_call(cudaEventDestroy(start),myrank,__LINE__);	
-		safe_call(cudaEventDestroy(stop),myrank,__LINE__);
+		}	
 	}
 	else
 	{
