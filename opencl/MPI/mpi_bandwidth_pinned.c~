@@ -2,7 +2,7 @@
 Author  : Kapil Agarwal
 Date    : 10 July 2012
 Compile : make mpi_bandwidth_pinned
-Help    : mpirun -n <no of processes> -host <host ip> ./mpi_bandwidth_pinned <transfer size>
+Help    : mpirun -n <no of processes> -host <host ip> ./mpi_bandwidth_pinned <matrix size> <work group size>
 */
 
 #include<stdio.h>
